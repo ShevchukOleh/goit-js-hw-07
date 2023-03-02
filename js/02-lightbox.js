@@ -5,8 +5,6 @@ import { galleryItems } from './gallery-items.js';
 
 const divEl = document.querySelector('.gallery');
 
-divEl.addEventListener('click', clickOnImage)
-
 const cardsMarkup = createGalleryItems(galleryItems);
 
 divEl.insertAdjacentHTML('beforeend', cardsMarkup);
@@ -21,16 +19,4 @@ function createGalleryItems(galleryItems) {
     }).join('');
 }
 
-function clickOnImage(evt) {
-    blockStandartAction(evt);
-
-    if (evt.target.nodeName !== 'IMG') {
-        return;
-    }
-
-    return lightbox = new SimpleLightbox('.gallery a', { caption: true, captionDelay: 250 });
-}
-
-function blockStandartAction(evt) {
-    evt.preventDefault();
-}
+const lightbox = new SimpleLightbox('.gallery a', { caption: true, captionDelay: 250 });
